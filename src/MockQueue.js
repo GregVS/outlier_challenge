@@ -29,4 +29,22 @@ export const MOCK_QUEUE_DATA = [
         title: 'Usain Bolt | ALL Olympic finals + Bonus round | Top Moments',
         author: 'Olympics',
     },
+    {
+        id: 'zP7AGWiw8Uw',
+        time: '2:04',
+        title: 'Arcane: Animated Series | A Score To Settle\n',
+        author: 'League of Legends',
+    },
+    {
+        id: '9_gkpYORQLU',
+        time: '4:02',
+        title: 'Polyphia | G.O.A.T. (Official Music Video)\n',
+        author: 'Polyphia',
+    },
+    {
+        id: 'UOxkGD8qRB4',
+        time: '3:22',
+        title: 'K/DA - POP/STARS (ft. Madison Beer, (G)I-DLE, Jaira Burns) | Music Video - League of Legends\n',
+        author: 'League of Legends',
+    },
 ];
