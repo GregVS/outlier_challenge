@@ -3,9 +3,9 @@ import { AppText, BoldText } from 'reuse/Text';
 import React from 'react';
 import styled from '@emotion/native';
 
-export function VideoInformation({ item }) {
+export function VideoInformation({ item, ...props }) {
     return (
-        <Row style={{ alignItems: 'center', flex: 1 }}>
+        <Row style={{ alignItems: 'center', ...props.style }}>
             <VideoThumbnail
                 source={{ uri: `https://img.youtube.com/vi/${item.id}/default.jpg` }}
                 imageStyle={{ borderRadius: 4 }}
@@ -51,6 +51,5 @@ const VideoLength = styled.View`
 const VideoThumbnail = styled.ImageBackground`
     width: 110px;
     margin-right: 12px;
-    margin-left: 12px;
     height: 60px;
 `;

@@ -8,8 +8,7 @@ export const AppText = styled.Text`
 `;
 
 export const TitleText = styled(AppText)`
-    font-size: 16px;
-    font-weight: bold;
+    font-size: 14px;
     font-family: RB-Bold;
 `;
 

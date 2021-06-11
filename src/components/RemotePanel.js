@@ -6,9 +6,13 @@ import { Search } from 'components/Search';
 import { StyleSheet, View } from 'react-native';
 import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import { useSelector } from 'react-redux';
+import { TitleText } from 'reuse/Text';
+import { VideoInformation } from 'components/VideoInformation';
 
 export const RemotePanel = React.forwardRef((props, ref) => {
     const isDragging = useSelector(state => state.isDragging);
+    const nowPlayingVideo = useSelector(state => state.nowPlaying);
+
     return (
         <BottomSheet
             ref={ref}
@@ -21,14 +25,21 @@ export const RemotePanel = React.forwardRef((props, ref) => {
             )}
             enableHandlePanningGesture={!isDragging}
             enableContentPanningGesture={!isDragging}
-            snapPoints={['0%', '50%', '90%']}
+            snapPoints={['0%', '90%']}
         >
             <FullHeightPanel>
                 <View style={{ flex: 1 }}>
                     <RemoteHeader />
-                    <View style={{ paddingLeft: 16, paddingRight: 16, marginBottom: 8 }}>
+                    <View style={{ marginBottom: 8 }}>
                         <Search />
                     </View>
+                    {nowPlayingVideo && (
+                        <>
+                            <TitleText>Now Playing</TitleText>
+                            <VideoInformation item={nowPlayingVideo} style={{ marginTop: 4 }} />
+                        </>
+                    )}
+                    <TitleText style={{ marginTop: 16 }}>Up Next</TitleText>
                     <Queue />
                 </View>
             </FullHeightPanel>
@@ -57,4 +68,5 @@ const FullHeightPanel = styled.View`
     flex: 1;
     background: rgb(35, 35, 35);
     align-items: stretch;
+  padding: 0 16px;
 `;

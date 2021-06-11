@@ -22,6 +22,6 @@ const HeaderRow = styled.View`
     width: 100%;
     display: flex;
     flex-direction: row;
-    padding: 16px;
+    padding: 16px 0;
     align-items: center;
 `;

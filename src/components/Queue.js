@@ -31,11 +31,11 @@ export function Queue() {
                 }}
                 autoscrollSpeed={50}
                 activationDistance={20}
-                ListHeaderComponent={() => (
-                    <BoldText fontSize={18} style={{ paddingLeft: 8, paddingBottom: 4 }}>
-                        Up Next
-                    </BoldText>
-                )}
+                // ListHeaderComponent={() => (
+                //     <BoldText fontSize={18} style={{ paddingBottom: 4 }}>
+                //         Up Next
+                //     </BoldText>
+                // )}
             />
             <QueuedItemMenu openedItem={openedQueueItem} setOpenedItem={setOpenedQueueItem} />
         </View>
