@@ -1,5 +1,5 @@
 # OutlierChallenge
-
+Clone the github repo. You will need npm installed.
 To run:
 ```
 npm install
