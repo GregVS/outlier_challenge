@@ -15,9 +15,9 @@ export function QueuedItem({ item, drag, isActive, openMenu }) {
                         <VideoInformation item={item} />
                     </TouchableOpacity>
                 </View>
-                <Pressable onPressIn={drag} style={{ width: 24 }}>
-                    <Column style={{ height: '100%', justifyContent: 'center', alignItems: 'flex-end' }}>
-                        <MaterialIcons name={'drag-handle'} color={'white'} size={24} />
+                <Pressable onPressIn={drag} style={{ width: 38, height: '100%', paddingRight: 16 }}>
+                    <Column style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
+                        <MaterialIcons name={'drag-handle'} color={'white'} size={24} style={{ alignSelf: 'center'}} />
                     </Column>
                 </Pressable>
             </SpaceBetweenRow>
@@ -26,7 +26,7 @@ export function QueuedItem({ item, drag, isActive, openMenu }) {
 }
 
 const QueuedVideoTile = styled.View`
-    height: 75px;
-    padding: 16px 0 16px;
-    background: ${props => (props.isActive ? '#333435' : undefined)};
+  height: 75px;
+  padding: 0 0 0 16px;
+  background: ${props => (props.isActive ? '#333435' : undefined)};
 `;

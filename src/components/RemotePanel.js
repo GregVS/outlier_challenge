@@ -30,20 +30,26 @@ export const RemotePanel = React.forwardRef((props, ref) => {
         >
             <FullHeightPanel>
                 <View style={{ flex: 1 }}>
-                    <RemoteHeader />
-                    <Button
-                        style={{ borderRadius: 24, marginBottom: 16 }}
-                        accessoryLeft={() => <MaterialIcons name={'search'} size={16} color='#b1b3b8' />}
-                    >
-                        Search Youtube/Twitch
-                    </Button>
+                    <PaddedView>
+                        <RemoteHeader />
+                        <Button
+                            style={{ borderRadius: 24, marginBottom: 16 }}
+                            accessoryLeft={() => <MaterialIcons name={'search'} size={16} color='#b1b3b8' />}
+                        >
+                            Search Youtube/Twitch
+                        </Button>
+                    </PaddedView>
                     {nowPlayingVideo && (
                         <>
-                            <TitleText>Now Playing</TitleText>
-                            <VideoInformation item={nowPlayingVideo} style={{ marginTop: 4, marginBottom: 16 }} />
+                            <PaddedView>
+                                <TitleText>Now Playing</TitleText>
+                            </PaddedView>
+                            <VideoInformation item={nowPlayingVideo} style={{ marginTop: 4, marginBottom: 16, paddingLeft: 16, paddingRight: 16 }} />
                         </>
                     )}
-                    <TitleText>Up Next</TitleText>
+                    <PaddedView>
+                        <TitleText>Up Next</TitleText>
+                    </PaddedView>
                     <Queue />
                 </View>
             </FullHeightPanel>
@@ -68,9 +74,13 @@ const HandleLine = styled.View`
     margin-top: 8px;
 `;
 
+const PaddedView = styled.View`
+    padding: 0 16px;
+`;
+
 const FullHeightPanel = styled.View`
     flex: 1;
     background: rgb(35, 35, 35);
     align-items: stretch;
-    padding: 0 16px;
+    //padding: 0 16px;
 `;
