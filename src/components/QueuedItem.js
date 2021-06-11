@@ -11,7 +11,7 @@ export function QueuedItem({ item, drag, isActive, openMenu }) {
         <QueuedVideoTile isActive={isActive}>
             <SpaceBetweenRow style={{ alignItems: 'center' }}>
                 <View style={{ flex: 1 }}>
-                    <TouchableOpacity onPress={() => openMenu(item)} onLongPress={drag}>
+                    <TouchableOpacity onPressIn={() => openMenu(item)} onLongPress={drag}>
                         <VideoInformation item={item} />
                     </TouchableOpacity>
                 </View>

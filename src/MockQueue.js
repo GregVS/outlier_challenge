@@ -32,13 +32,13 @@ export const MOCK_QUEUE_DATA = [
     {
         id: 'zP7AGWiw8Uw',
         time: '2:04',
-        title: 'Arcane: Animated Series | A Score To Settle\n',
+        title: 'Arcane: Animated Series | A Score To Settle',
         author: 'League of Legends',
     },
     {
         id: '9_gkpYORQLU',
         time: '4:02',
-        title: 'Polyphia | G.O.A.T. (Official Music Video)\n',
+        title: 'Polyphia | G.O.A.T. (Official Music Video)',
         author: 'Polyphia',
     },
     {
