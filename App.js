@@ -1,19 +1,25 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { LogBox, View } from 'react-native';
+import { LogBox, Text, View } from 'react-native';
 import { VideoView } from 'components/ActiveVideo';
 import { RemotePanel } from 'components/RemotePanel';
 import 'react-native-gesture-handler';
 import * as Font from 'expo-font';
 import * as eva from '@eva-design/eva';
-import { ApplicationProvider } from '@ui-kitten/components';
+import { ApplicationProvider, Button } from '@ui-kitten/components';
+import { createStore } from 'redux';
+import QueueReducer from 'redux/QueueReducer';
+import { Provider } from 'react-redux';
+import BottomSheet from '@gorhom/bottom-sheet';
 
-LogBox.ignoreLogs([  "ReactNativeFiberHostComponent: Calling getNode() on the ref of an Animated component is no longer necessary. You can now directly use the ref instead. This method will be removed in a future release.",]);
+LogBox.ignoreLogs([
+    'ReactNativeFiberHostComponent: Calling getNode() on the ref of an Animated component is no longer necessary. You can now directly use the ref instead. This method will be removed in a future release.',
+]);
 
+const store = createStore(QueueReducer);
 export default function App() {
-
-    const [ loaded, setLoaded ] = React.useState(false);
-    const sheetRef = React.useRef(null);
+    const sheetRef = React.useRef();
+    const [loaded, setLoaded] = React.useState(false);
 
     Font.loadAsync({
         'RB-Medium': require('./assets/fonts/RB-Medium.otf'),
@@ -23,27 +29,16 @@ export default function App() {
 
     if (!loaded) return null;
 
-
     return (
-        <ApplicationProvider {...eva} theme={eva.light}>
-            <View style={{ flex: 1 }}>
-                <StatusBar style='light' />
-                <VideoView />
-                {/*<View*/}
-                {/*    style={{*/}
-                {/*        flex: 1,*/}
-                {/*        backgroundColor: 'papayawhip',*/}
-                {/*        alignItems: 'center',*/}
-                {/*        justifyContent: 'center',*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    <Button*/}
-                {/*        title="Open Bottom Sheet"*/}
-                {/*        onPress={() => sheetRef.current.snapTo(0)}*/}
-                {/*    />*/}
-                {/*</View>*/}
-                <RemotePanel sheetRef={sheetRef} />
-            </View>
-        </ApplicationProvider>
+        <Provider store={store}>
+            <ApplicationProvider {...eva} theme={eva.dark}>
+                <View style={{ flex: 1, backgroundColor: 'rgb(100, 100, 100)' }}>
+                    <StatusBar style='light' />
+                    <VideoView />
+                    <Button onPressIn={() => sheetRef.current.expand()}>Open Queue</Button>
+                </View>
+                <RemotePanel ref={sheetRef} />
+            </ApplicationProvider>
+        </Provider>
     );
 }
