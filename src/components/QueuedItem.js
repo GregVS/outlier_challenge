@@ -1,17 +1,16 @@
-import { Pressable, View } from 'react-native';
+import { Pressable, View, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import styled from '@emotion/native';
 import React from 'react';
 import { Column, SpaceBetweenRow } from 'reuse/Layout';
 import { VideoInformation } from 'components/VideoInformation';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export function QueuedItem({ item, drag, isActive, openMenu }) {
     return (
         <QueuedVideoTile isActive={isActive}>
             <SpaceBetweenRow style={{ alignItems: 'center' }}>
                 <View style={{ flex: 1 }}>
-                    <TouchableOpacity onPressIn={() => openMenu(item)} onLongPress={drag}>
+                    <TouchableOpacity onPress={() => openMenu(item)} onLongPress={drag}>
                         <VideoInformation item={item} />
                     </TouchableOpacity>
                 </View>

@@ -26,7 +26,7 @@ export const RemotePanel = React.forwardRef((props, ref) => {
             )}
             enableHandlePanningGesture={!isDragging}
             enableContentPanningGesture={!isDragging}
-            snapPoints={['0%', '90%']}
+            snapPoints={['0%', '70%']}
         >
             <FullHeightPanel>
                 <View style={{ flex: 1 }}>
