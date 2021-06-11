@@ -1,9 +1,12 @@
-import { Pressable, View, TouchableOpacity } from 'react-native';
+import { Platform, Pressable, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import styled from '@emotion/native';
 import React from 'react';
 import { Column, SpaceBetweenRow } from 'reuse/Layout';
 import { VideoInformation } from 'components/VideoInformation';
+
+const { TouchableOpacity } =
+    Platform.OS === 'android' ? require('react-native-gesture-handler') : require('react-native');
 
 export function QueuedItem({ item, drag, isActive, openMenu }) {
     return (
@@ -16,7 +19,7 @@ export function QueuedItem({ item, drag, isActive, openMenu }) {
                 </View>
                 <Pressable onPressIn={drag} style={{ width: 38, height: '100%', paddingRight: 16 }}>
                     <Column style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-                        <MaterialIcons name={'drag-handle'} color={'white'} size={24} style={{ alignSelf: 'center'}} />
+                        <MaterialIcons name={'drag-handle'} color={'white'} size={24} style={{ alignSelf: 'center' }} />
                     </Column>
                 </Pressable>
             </SpaceBetweenRow>
@@ -25,7 +28,7 @@ export function QueuedItem({ item, drag, isActive, openMenu }) {
 }
 
 const QueuedVideoTile = styled.View`
-  height: 75px;
-  padding: 0 0 0 16px;
-  background: ${props => (props.isActive ? '#333435' : undefined)};
+    height: 75px;
+    padding: 0 0 0 16px;
+    background: ${props => (props.isActive ? '#333435' : undefined)};
 `;
