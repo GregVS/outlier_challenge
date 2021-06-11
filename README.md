@@ -1,12 +1,9 @@
 # OutlierChallenge
-
+Clone the github repo. You will need npm installed.
 To run:
 ```
 npm install
-npm start
+expo install
+expo start -c --no-dev
 ```
-Or if you want to use yarn:
-```
-yarn install
-yarn start
-```
+Make sure to run both `npm install` and `expo install` for the app to work properly.
