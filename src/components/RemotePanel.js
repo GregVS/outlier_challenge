@@ -2,12 +2,13 @@ import React from 'react';
 import styled from '@emotion/native';
 import { RemoteHeader } from 'components/RemoteHeader';
 import { Queue } from 'components/Queue';
-import { Search } from 'components/Search';
 import { StyleSheet, View } from 'react-native';
 import BottomSheet, { BottomSheetBackdrop } from '@gorhom/bottom-sheet';
 import { useSelector } from 'react-redux';
 import { TitleText } from 'reuse/Text';
 import { VideoInformation } from 'components/VideoInformation';
+import { Button } from '@ui-kitten/components';
+import { MaterialIcons } from '@expo/vector-icons';
 
 export const RemotePanel = React.forwardRef((props, ref) => {
     const isDragging = useSelector(state => state.isDragging);
@@ -30,16 +31,19 @@ export const RemotePanel = React.forwardRef((props, ref) => {
             <FullHeightPanel>
                 <View style={{ flex: 1 }}>
                     <RemoteHeader />
-                    <View style={{ marginBottom: 8 }}>
-                        <Search />
-                    </View>
+                    <Button
+                        style={{ borderRadius: 24, marginBottom: 16 }}
+                        accessoryLeft={() => <MaterialIcons name={'search'} size={16} color='#b1b3b8' />}
+                    >
+                        Search Youtube/Twitch
+                    </Button>
                     {nowPlayingVideo && (
                         <>
                             <TitleText>Now Playing</TitleText>
-                            <VideoInformation item={nowPlayingVideo} style={{ marginTop: 4 }} />
+                            <VideoInformation item={nowPlayingVideo} style={{ marginTop: 4, marginBottom: 16 }} />
                         </>
                     )}
-                    <TitleText style={{ marginTop: 16 }}>Up Next</TitleText>
+                    <TitleText>Up Next</TitleText>
                     <Queue />
                 </View>
             </FullHeightPanel>
@@ -68,5 +72,5 @@ const FullHeightPanel = styled.View`
     flex: 1;
     background: rgb(35, 35, 35);
     align-items: stretch;
-  padding: 0 16px;
+    padding: 0 16px;
 `;

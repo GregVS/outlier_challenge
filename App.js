@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { LogBox, Text, View } from 'react-native';
+import { LogBox, View } from 'react-native';
 import { VideoView } from 'components/ActiveVideo';
 import { RemotePanel } from 'components/RemotePanel';
 import 'react-native-gesture-handler';
@@ -10,7 +10,6 @@ import { ApplicationProvider, Button } from '@ui-kitten/components';
 import { createStore } from 'redux';
 import QueueReducer from 'redux/QueueReducer';
 import { Provider } from 'react-redux';
-import BottomSheet from '@gorhom/bottom-sheet';
 
 LogBox.ignoreLogs([
     'ReactNativeFiberHostComponent: Calling getNode() on the ref of an Animated component is no longer necessary. You can now directly use the ref instead. This method will be removed in a future release.',
@@ -31,7 +30,7 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            <ApplicationProvider {...eva} theme={eva.dark}>
+            <ApplicationProvider {...eva} theme={{ ...eva.dark, 'color-primary-500': '#333435' }}>
                 <View style={{ flex: 1, backgroundColor: 'rgb(100, 100, 100)' }}>
                     <StatusBar style='light' />
                     <VideoView />

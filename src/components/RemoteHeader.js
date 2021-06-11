@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from '@emotion/native';
 import RemoteIcon from '../../assets/remote.png';
-import { TitleText } from 'reuse/Text';
+import { BoldText } from 'reuse/Text';
 
 export function RemoteHeader() {
     return (
         <HeaderRow>
             <HeaderIcon source={RemoteIcon} />
-            <TitleText>TV Remote</TitleText>
+            <BoldText fontSize={16}>TV Remote</BoldText>
         </HeaderRow>
     );
 }
