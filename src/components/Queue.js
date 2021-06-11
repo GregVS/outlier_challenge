@@ -1,7 +1,6 @@
 import React from 'react';
 import DraggableFlatList from 'react-native-draggable-flatlist';
 import { QueuedItem } from 'components/QueuedItem';
-import { BoldText } from 'reuse/Text';
 import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { PlayVideoAction, RemoveVideoAction, ReorderQueueAction, SetDraggingAction } from 'redux/QueueReducer';
@@ -31,11 +30,6 @@ export function Queue() {
                 }}
                 autoscrollSpeed={50}
                 activationDistance={20}
-                // ListHeaderComponent={() => (
-                //     <BoldText fontSize={18} style={{ paddingBottom: 4 }}>
-                //         Up Next
-                //     </BoldText>
-                // )}
             />
             <QueuedItemMenu openedItem={openedQueueItem} setOpenedItem={setOpenedQueueItem} />
         </View>
@@ -49,7 +43,7 @@ function QueuedItemMenu({ openedItem, setOpenedItem }) {
         <Overlay
             childrenWrapperStyle={{
                 backgroundColor: 'rgb(35, 35, 35)',
-                padding: 8,
+                padding: 0,
                 width: 200,
                 alignSelf: 'center',
             }}
@@ -59,6 +53,7 @@ function QueuedItemMenu({ openedItem, setOpenedItem }) {
             visible={Boolean(openedItem)}
         >
             <StyledMenuItem
+                activeOpacity={0.3}
                 accessoryLeft={() => <MaterialIcons name={'play-arrow'} size={16} color={'white'} />}
                 title={'Play Now'}
                 onPress={() => {
@@ -67,6 +62,7 @@ function QueuedItemMenu({ openedItem, setOpenedItem }) {
                 }}
             />
             <StyledMenuItem
+                activeOpacity={0.3}
                 accessoryLeft={() => <MaterialIcons name={'close'} size={16} color={'white'} />}
                 title={'Remove'}
                 onPress={() => {
@@ -79,5 +75,7 @@ function QueuedItemMenu({ openedItem, setOpenedItem }) {
 }
 
 const StyledMenuItem = styled(MenuItem)`
-    background: rgb(35, 35, 35);
+    background-color: rgb(35, 35, 35);
+    padding: 24px;
+    width: 100%;
 `;
