@@ -1,4 +1,7 @@
 # OutlierChallenge
+Download: https://expo.io/@gsaldanha2/OutlierChallenge
+
+Building from source:
 Clone the github repo. You will need npm installed.
 To run:
 ```
